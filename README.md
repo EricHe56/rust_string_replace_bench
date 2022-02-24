@@ -51,4 +51,4 @@ test tests::bench_replace_oid2str           ... bench:      45,609 ns/iter (+/- 
 test tests::bench_replace_str2oid           ... bench:      30,017 ns/iter (+/- 10,950)
 test tests::bench_replace_string_add        ... bench:      27,815 ns/iter (+/- 10,362)
 test tests::bench_replace_u8_unsafe_morecap ... bench:      26,710 ns/iter (+/- 5,008)
-```bash
+```
