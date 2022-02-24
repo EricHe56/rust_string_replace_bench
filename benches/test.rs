@@ -14,7 +14,7 @@ mod tests {
     use super::*;
     use test::Bencher;
 
-    const SIZE: i32 = 10;
+    const SIZE: i32 = 10000;
 
     #[bench]
     fn bench_replace(b: &mut Bencher) {
