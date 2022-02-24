@@ -23,7 +23,7 @@ test tests::bench_regex_replace_all         ... bench:   3,315,995 ns/iter (+/- 
 test tests::bench_replace                   ... bench:   4,143,910 ns/iter (+/- 947,399)  
 test tests::bench_replace_oid2str           ... bench:   2,073,625 ns/iter (+/- 968,135)  +
 test tests::bench_replace_str2oid           ... bench:   1,804,675 ns/iter (+/- 580,960)  +
-test tests::bench_replace_string_add        ... bench:   1,700,280 ns/iter (+/- 617,699)  +
+test tests::bench_replace_string_push       ... bench:   1,700,280 ns/iter (+/- 617,699)  +
 test tests::bench_replace_u8_unsafe_morecap ... bench:   1,705,825 ns/iter (+/- 579,968)  +
 ```
 
@@ -36,7 +36,7 @@ test tests::bench_regex_replace_all         ... bench:     539,595 ns/iter (+/- 
 test tests::bench_replace                   ... bench:     124,147 ns/iter (+/- 37,775)  
 test tests::bench_replace_oid2str           ... bench:     124,498 ns/iter (+/- 12,935)  +
 test tests::bench_replace_str2oid           ... bench:      84,601 ns/iter (+/- 8,789)   +
-test tests::bench_replace_string_add        ... bench:      83,253 ns/iter (+/- 15,767)  +
+test tests::bench_replace_string_push       ... bench:      83,253 ns/iter (+/- 15,767)  +
 test tests::bench_replace_u8_unsafe_morecap ... bench:      80,980 ns/iter (+/- 26,040)  +
 ```
 
@@ -49,7 +49,7 @@ test tests::bench_regex_replace_all         ... bench:      28,692 ns/iter (+/- 
 test tests::bench_replace                   ... bench:      12,974 ns/iter (+/- 2,994)   +
 test tests::bench_replace_oid2str           ... bench:      45,609 ns/iter (+/- 35,226)
 test tests::bench_replace_str2oid           ... bench:      30,017 ns/iter (+/- 10,950)
-test tests::bench_replace_string_add        ... bench:      27,815 ns/iter (+/- 10,362)  +
+test tests::bench_replace_string_push       ... bench:      27,815 ns/iter (+/- 10,362)  +
 test tests::bench_replace_u8_unsafe_morecap ... bench:      26,710 ns/iter (+/- 5,008)   +
 ```
 
@@ -75,6 +75,6 @@ test tests::bench_regex_replace_all         ... bench:      21,478 ns/iter (+/- 
 test tests::bench_replace                   ... bench:         328 ns/iter (+/- 140)    +
 test tests::bench_replace_oid2str           ... bench:      40,829 ns/iter (+/- 7,016)
 test tests::bench_replace_str2oid           ... bench:      22,956 ns/iter (+/- 16,197)
-test tests::bench_replace_string_add        ... bench:      20,827 ns/iter (+/- 4,695)
+test tests::bench_replace_string_push       ... bench:      20,827 ns/iter (+/- 4,695)
 test tests::bench_replace_u8_unsafe_morecap ... bench:      19,740 ns/iter (+/- 4,622)
 ```
