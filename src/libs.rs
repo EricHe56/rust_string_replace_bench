@@ -195,7 +195,8 @@ pub fn replace_string_add_unsafe(input: &str, from: &str, to: &str) -> String {
     }
 }
 
-pub fn replace_oid_to_str(input: &str) -> String {
+#[allow(dead_code)]
+pub fn replace_oid_to_str_u8_unsafe(input: &str) -> String {
     let re: Regex = Regex::new(r#""_id":\{"\$oid":"#).unwrap();
     let len = input.len();
     let mut output:Vec<u8> = Vec::with_capacity(len + len/2);
@@ -217,7 +218,8 @@ pub fn replace_oid_to_str(input: &str) -> String {
     unsafe { String::from_utf8_unchecked(output) }
 }
 
-pub fn replace_str_to_oid(input: &str) -> String {
+#[allow(dead_code)]
+pub fn replace_str_to_oid_u8_unsafe(input: &str) -> String {
     let re: Regex = Regex::new(r#""id":"#).unwrap();
     let len = input.len();
     let mut output:Vec<u8> = Vec::with_capacity(len + len/2);
@@ -238,4 +240,47 @@ pub fn replace_str_to_oid(input: &str) -> String {
         }
     }
     unsafe { String::from_utf8_unchecked(output) }
+}
+
+pub fn replace_oid_to_str_safe(input: &str) -> String {
+    let re: Regex = Regex::new(r#""_id":\{"\$oid":"#).unwrap();
+    let len = input.len();
+    let mut output = String::with_capacity(len + len/2);
+    let mut is_finding = true;
+    let mut start_position = 0;
+    while is_finding {
+        let match_result = re.find_at(&input, start_position);
+        if let Some(m) = match_result {
+            output.push_str(&input[start_position..m.start()]);
+            output.push_str("\"id\":");
+            output.push_str(&input[m.end()..(m.end()+26)]);
+            start_position = m.end()+27;    // next start position  
+        } else {
+            is_finding = false;
+            output.push_str(&input[start_position..]);
+        }
+    }
+    output
+}
+
+pub fn replace_str_to_oid_safe(input: &str) -> String {
+    let re: Regex = Regex::new(r#""id":"#).unwrap();
+    let len = input.len();
+    let mut output = String::with_capacity(len + len/2);
+    let mut is_finding = true;
+    let mut start_position = 0;
+    while is_finding {
+        let match_result = re.find_at(&input, start_position);
+        if let Some(m) = match_result {
+            output.push_str(&input[start_position..m.start()]);
+            output.push_str("\"_id\":{\"$oid\":");
+            output.push_str(&input[m.end()..(m.end()+26)]);
+            output.push_str("}");
+            start_position = m.end()+26;    // next start position  
+        } else {
+            is_finding = false;
+            output.push_str(&input[start_position..]);
+        }
+    }
+    output
 }

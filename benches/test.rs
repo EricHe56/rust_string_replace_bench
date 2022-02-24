@@ -90,22 +90,42 @@ mod tests {
     }
 
     #[bench]
-    fn bench_replace_oid2str(b: &mut Bencher) {
+    fn bench_replace_oid2str_safe(b: &mut Bencher) {
         let vec_db_item_list = get_db_faq_list(SIZE);
         let s = serde_json::to_string(&vec_db_item_list).unwrap();
 
         b.iter(|| {
-            replace_oid_to_str(&s)
+            replace_oid_to_str_safe(&s)
         })
     }
 
     #[bench]
-    fn bench_replace_str2oid(b: &mut Bencher) {
+    fn bench_replace_str2oid_safe(b: &mut Bencher) {
         let vec_api_item_list = get_api_faq_list(SIZE);
         let s = serde_json::to_string(&vec_api_item_list).unwrap();
 
         b.iter(|| {
-            replace_str_to_oid(&s)
+            replace_str_to_oid_safe(&s)
+        })
+    }
+
+    #[bench]
+    fn bench_replace_oid2str_u8_unsafe(b: &mut Bencher) {
+        let vec_db_item_list = get_db_faq_list(SIZE);
+        let s = serde_json::to_string(&vec_db_item_list).unwrap();
+
+        b.iter(|| {
+            replace_oid_to_str_u8_unsafe(&s)
+        })
+    }
+
+    #[bench]
+    fn bench_replace_str2oid_u8_unsafe(b: &mut Bencher) {
+        let vec_api_item_list = get_api_faq_list(SIZE);
+        let s = serde_json::to_string(&vec_api_item_list).unwrap();
+
+        b.iter(|| {
+            replace_str_to_oid_u8_unsafe(&s)
         })
     }
 }

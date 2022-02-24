@@ -8,7 +8,7 @@ fn main() {
     let s = serde_json::to_string(&vec_api_item_list).unwrap();
     // println!("{}", &s);
 
-    let t5 = replace_str_to_oid(&s);
+    let t5 = replace_str_to_oid_safe(&s);
     println!("{}", t5);
 
     // let s = "abc\"id\", \"id\", xxx";
@@ -28,6 +28,6 @@ fn main() {
     let s = serde_json::to_string(&vec_db_faq_list).unwrap();
     // println!("{}", &s);
 
-    let t4 = replace_oid_to_str(&s);
+    let t4 = replace_oid_to_str_safe(&s);
     println!("{}", t4);
 }
