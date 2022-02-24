@@ -148,7 +148,7 @@ pub fn replace_u8_unsafe_morecap(input: &str, from: &str, to: &str) -> String {
 }
 
 #[allow(dead_code)]
-pub fn replace_string_add(input: &str, from: &str, to: &str) -> String {
+pub fn replace_str_push(input: &str, from: &str, to: &str) -> String {
     let re: Regex = Regex::new(from).unwrap();
     // let input = input.into();
     let len = input.len();

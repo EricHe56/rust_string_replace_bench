@@ -14,7 +14,7 @@ mod tests {
     use super::*;
     use test::Bencher;
 
-    const SIZE: i32 = 10000;
+    const SIZE: i32 = 10;
 
     #[bench]
     fn bench_replace(b: &mut Bencher) {
@@ -59,7 +59,7 @@ mod tests {
         let to = "\"_id\"";
         // let s = source();
         b.iter(|| {
-            replace_string_add(s.as_str(), from, to)
+            replace_str_push(s.as_str(), from, to)
         })
     }
 
