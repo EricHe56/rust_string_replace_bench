@@ -51,7 +51,7 @@ mod tests {
     }
 
     #[bench]
-    fn bench_replace_string_add(b: &mut Bencher) {
+    fn bench_replace_string_push(b: &mut Bencher) {
         let vec_api_item_list = get_api_faq_list(SIZE);
 
         let s = serde_json::to_string(&vec_api_item_list).unwrap();
