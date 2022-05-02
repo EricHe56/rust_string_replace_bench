@@ -16,6 +16,7 @@ So first way is using `impl From` and loop to handle 10000 records, but think it
 
 ### 10000 Records
 ```bash
+rustup run nightly cargo bench
 running 8 tests  
 test tests::bench_api2db_struct             ... bench:  10,777,840 ns/iter (+/- 1,541,968)  
 test tests::bench_db2api_struct             ... bench:   7,903,435 ns/iter (+/- 2,178,199)  
